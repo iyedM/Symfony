@@ -21,7 +21,7 @@
         <td>{{a.username|upper}}</td>
         <td>{{a.email}}</td>
         <td>{{a.nb_books}}</td> 
-        <td><a href="">Details</a></td>
+        <td><a href="{{path('details',{'identity': a.id})}}">Details</a></td>
         {% set total = total +a.nb_books %}
     </tr>
 {%endfor%}

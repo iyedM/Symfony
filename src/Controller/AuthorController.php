@@ -36,13 +36,18 @@ class AuthorController extends AbstractController
             "data" => $this->authors
         ]);
     }
-    #[Route('/detail/{id}', name:"details")]
-    public function details($id)
+    #[Route('/detail/{identity}', name:"details")]
+    public function details($identity)
     {
-        $author = $this->authors[$id-1];
-        //-1 khater id fl tableau ybda mn 0 
+        $newAuthor=null;
+        foreach($this->authors as $a){
+            if($a['id'] == $identity){
+                $newAuthor=$a;
+            }
+            
+        }
         return $this->render('author/detail.html.twig', [
-            "auteur" => $author
+            "auteur" => $newAuthor
         ]);
     }
 }
