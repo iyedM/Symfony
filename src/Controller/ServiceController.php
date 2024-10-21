@@ -24,6 +24,6 @@ class ServiceController extends AbstractController
     }
     #[Route("/index",name:'go-to-index')]
     public function goToIndex(){
-        return $this->redirectToRoute('app_service');
+        return $this->redirectToRoute('msg');
     }
 }

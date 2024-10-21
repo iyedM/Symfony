@@ -1,0 +1,30 @@
+{%if not data or data|length==0 %}
+
+<h2>No authors </h2>
+
+{%else%}
+
+<table align="center" border="1">
+    <tr>
+        <td>Id</td>
+        <td>Pictures</td>
+        <td>Name</td>
+        <td>Email</td>
+        <td>Nbr  of books</td>
+        <td>Details</td>
+    </tr>
+{% set total=0 %}
+{%for a in data %}
+    <tr>
+        <td>{{a.id}}</td>
+        <td><img src="{{asset(a.picture) }}" alt="img"></td>
+        <td>{{a.username|upper}}</td>
+        <td>{{a.email}}</td>
+        <td>{{a.nb_books}}</td> 
+        <td><a href="">Details</a></td>
+        {% set total = total +a.nb_books %}
+    </tr>
+{%endfor%}
+<h2>nombre total: {{total}}</h2>
+</table>
+{% endif %}
